@@ -51,6 +51,10 @@ func (c Caylion) Converters() []Converter {
 	return c.converters
 }
 
+func (c Caylion) Colonies() []Colony {
+	return c.colonies
+}
+
 func (c Caylion) ColonySupport() int {
 	return c.colonySupport
 }
