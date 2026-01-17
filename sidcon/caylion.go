@@ -32,6 +32,8 @@ func (f Caylion) Init() {
 	var colony Colony = GenerateColony()
 	colony.hasSeedlingToken = true
 	f.props.colonies = []Colony{colony}
+	f.props.colonySupport = 3
+	f.props.bidTiebreaker = 1
 }
 
 func (f Caylion) Properties() FactionProperties {
