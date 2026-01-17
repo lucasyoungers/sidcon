@@ -31,8 +31,12 @@ func (c Cubes) Add(cube Cube, quantity int) {
 	c[cube] += quantity
 }
 
-func (c Cubes) Remove(cube Cube, quantity int) {
+func (c Cubes) Remove(cube Cube, quantity int) error {
+	if !c.Contains(cube, quantity) {
+		return fmt.Errorf("not enough %s", cube)
+	}
 	c[cube] -= quantity
+	return nil
 }
 
 func (c Cubes) AddCubes(other Cubes) {
@@ -41,10 +45,14 @@ func (c Cubes) AddCubes(other Cubes) {
 	}
 }
 
-func (c Cubes) RemoveCubes(other Cubes) {
+func (c Cubes) RemoveCubes(other Cubes) error {
+	if !c.ContainsCubes(other) {
+		return fmt.Errorf("not enough cubes")
+	}
 	for cube, quantity := range other {
 		c.Remove(cube, quantity)
 	}
+	return nil
 }
 
 func (c Cubes) Contains(cube Cube, quantity int) bool {
