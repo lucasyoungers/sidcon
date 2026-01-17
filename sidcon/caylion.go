@@ -9,10 +9,10 @@ type Caylion struct {
 	bidTiebreaker int
 }
 
-func (c Caylion) Init() {
-	c.name = "Caylion"
-	c.cubes = Cubes{Black: 2, Green: 5, White: 4, Brown: 2, Ship: 1}
-	c.converters = []Converter{
+func (f Caylion) Init() {
+	f.name = "Caylion"
+	f.cubes = Cubes{Black: 2, Green: 5, White: 4, Brown: 2, Ship: 1}
+	f.converters = []Converter{
 		{
 			"Planetary Ecological Dominance",
 			Cubes{},
@@ -36,29 +36,29 @@ func (c Caylion) Init() {
 	}
 	var colony Colony = GenerateColony()
 	colony.hasSeedlingToken = true
-	c.colonies = []Colony{colony}
+	f.colonies = []Colony{colony}
 }
 
-func (c Caylion) Name() string {
-	return c.name
+func (f Caylion) Name() string {
+	return f.name
 }
 
-func (c Caylion) Cubes() Cubes {
-	return c.cubes
+func (f Caylion) Cubes() Cubes {
+	return f.cubes
 }
 
-func (c Caylion) Converters() []Converter {
-	return c.converters
+func (f Caylion) Converters() []Converter {
+	return f.converters
 }
 
-func (c Caylion) Colonies() []Colony {
-	return c.colonies
+func (f Caylion) Colonies() []Colony {
+	return f.colonies
 }
 
-func (c Caylion) ColonySupport() int {
-	return c.colonySupport
+func (f Caylion) ColonySupport() int {
+	return f.colonySupport
 }
 
-func (c Caylion) BidTiebreaker() int {
-	return c.bidTiebreaker
+func (f Caylion) BidTiebreaker() int {
+	return f.bidTiebreaker
 }
