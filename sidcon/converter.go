@@ -23,6 +23,14 @@ func (c Converter) Output() Cubes {
 	return c.output
 }
 
+func (c Converter) AddTo(f Faction) {
+	f.Properties().AddConverter(c)
+}
+
+func (c Converter) RemoveFrom(f Faction) error {
+	return f.Properties().RemoveConverter(c)
+}
+
 func ParseConverter(s string) (Converter, error) {
 	var nameSplit []string = strings.Split(s, ":")
 	if len(nameSplit) < 2 {

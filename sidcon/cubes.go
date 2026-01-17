@@ -71,6 +71,14 @@ func (c Cubes) ContainsCubes(other Cubes) bool {
 	return true
 }
 
+func (c Cubes) AddTo(f Faction) {
+	f.Properties().AddCubes(c)
+}
+
+func (c Cubes) RemoveFrom(f Faction) error {
+	return f.Properties().RemoveCubes(c)
+}
+
 func ParseCubes(s string) (Cubes, error) {
 	var reMain *regexp.Regexp = regexp.MustCompile(`\d+[A-Za-z]+`)
 	var reQuantity *regexp.Regexp = regexp.MustCompile(`\d+`)

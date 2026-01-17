@@ -56,6 +56,14 @@ func (c Colony) Output() Cubes {
 	return c.output
 }
 
+func (c Colony) AddTo(f Faction) {
+	f.Properties().AddColony(c)
+}
+
+func (c Colony) RemoveFrom(f Faction) error {
+	return f.Properties().RemoveColony(c)
+}
+
 var letters = []rune("abcdefghijklmnopqrstuvwxyz")
 
 func generateName() string {
