@@ -13,22 +13,22 @@ func (c Caylion) Init() {
 	c.name = "Caylion"
 	c.cubes = Cubes{Black: 2, Green: 5, White: 4, Brown: 2, Ship: 1}
 	c.converters = []Converter{
-		Converter{
+		{
 			"Planetary Ecological Dominance",
 			Cubes{},
 			Cubes{Ship: 1, Green: 3, White: 1},
 		},
-		Converter{
+		{
 			"Oceanic Processing",
 			Cubes{Green: 2},
 			Cubes{Blue: 1, Brown: 1},
 		},
-		Converter{
+		{
 			"Distributed Telenet",
 			Cubes{Black: 1},
 			Cubes{Brown: 1, White: 1},
 		},
-		Converter{
+		{
 			"Lunar Mining Consortium",
 			Cubes{Blue: 2},
 			Cubes{Ship: 2, Black: 1, White: 1},
