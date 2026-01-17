@@ -26,6 +26,7 @@ func (c Climate) String() string {
 }
 
 type Colony struct {
+	name             string
 	climate          Climate
 	input            Cubes
 	output           Cubes
@@ -72,5 +73,5 @@ func generateName() string {
 func GenerateColony() Colony {
 	var climate Climate = Climate(rand.IntN(len(climate)))
 	var cube Cube = Cube(rand.IntN(len(color)))
-	return Colony{climate, Cubes{}, Cubes{cube: 1}, false, false}
+	return Colony{generateName(), climate, Cubes{}, Cubes{cube: 1}, false, false}
 }
