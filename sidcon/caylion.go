@@ -1,18 +1,13 @@
 package sidcon
 
 type Caylion struct {
-	name          string
-	cubes         Cubes
-	converters    []Converter
-	colonies      []Colony
-	colonySupport int
-	bidTiebreaker int
+	props FactionProperties
 }
 
 func (f Caylion) Init() {
-	f.name = "Caylion"
-	f.cubes = Cubes{Black: 2, Green: 5, White: 4, Brown: 2, Ship: 1}
-	f.converters = []Converter{
+	f.props.name = "Caylion"
+	f.props.cubes = Cubes{Black: 2, Green: 5, White: 4, Brown: 2, Ship: 1}
+	f.props.converters = []Converter{
 		{
 			"Planetary Ecological Dominance",
 			Cubes{},
@@ -36,29 +31,5 @@ func (f Caylion) Init() {
 	}
 	var colony Colony = GenerateColony()
 	colony.hasSeedlingToken = true
-	f.colonies = []Colony{colony}
-}
-
-func (f Caylion) Name() string {
-	return f.name
-}
-
-func (f Caylion) Cubes() Cubes {
-	return f.cubes
-}
-
-func (f Caylion) Converters() []Converter {
-	return f.converters
-}
-
-func (f Caylion) Colonies() []Colony {
-	return f.colonies
-}
-
-func (f Caylion) ColonySupport() int {
-	return f.colonySupport
-}
-
-func (f Caylion) BidTiebreaker() int {
-	return f.bidTiebreaker
+	f.props.colonies = []Colony{colony}
 }

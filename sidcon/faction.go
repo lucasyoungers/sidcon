@@ -2,10 +2,14 @@ package sidcon
 
 type Faction interface {
 	Init()
-	Name() string
-	Cubes() Cubes
-	Converters() []Converter
-	Colonies() []Colony
-	ColonySupport() int
-	BidTiebreaker() int
+	Properties() FactionProperties
+}
+
+type FactionProperties struct {
+	name          string
+	cubes         Cubes
+	converters    []Converter
+	colonies      []Colony
+	colonySupport int
+	bidTiebreaker int
 }
