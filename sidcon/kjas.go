@@ -32,3 +32,7 @@ func (f Kjas) Init() {
 func (f Kjas) Properties() FactionProperties {
 	return f.props
 }
+
+func (f Kjas) SetProperties(props FactionProperties) {
+	f.props = props
+}

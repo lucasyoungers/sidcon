@@ -34,3 +34,7 @@ func (f Faderan) Init() {
 func (f Faderan) Properties() FactionProperties {
 	return f.props
 }
+
+func (f Faderan) SetProperties(props FactionProperties) {
+	f.props = props
+}

@@ -33,3 +33,7 @@ func (f EniEt) Init() {
 	f.props.colonySupport = 3
 	f.props.bidTiebreaker = 3
 }
+
+func (f EniEt) SetProperties(props FactionProperties) {
+	f.props = props
+}

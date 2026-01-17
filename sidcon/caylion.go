@@ -39,3 +39,7 @@ func (f Caylion) Init() {
 func (f Caylion) Properties() FactionProperties {
 	return f.props
 }
+
+func (f Caylion) SetProperties(props FactionProperties) {
+	f.props = props
+}

@@ -42,3 +42,7 @@ func (f Yengii) Init() {
 func (f Yengii) Properties() FactionProperties {
 	return f.props
 }
+
+func (f Yengii) SetProperties(props FactionProperties) {
+	f.props = props
+}

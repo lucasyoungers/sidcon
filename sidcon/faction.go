@@ -3,6 +3,7 @@ package sidcon
 type Faction interface {
 	Init()
 	Properties() FactionProperties
+	SetProperties(FactionProperties)
 }
 
 type FactionProperties struct {
