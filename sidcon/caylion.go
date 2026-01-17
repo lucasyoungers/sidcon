@@ -33,3 +33,7 @@ func (f Caylion) Init() {
 	colony.hasSeedlingToken = true
 	f.props.colonies = []Colony{colony}
 }
+
+func (f Caylion) Properties() FactionProperties {
+	return f.props
+}
