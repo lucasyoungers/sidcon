@@ -43,7 +43,7 @@ func (c Cubes) AddCubes(other Cubes) {
 
 func (c Cubes) RemoveCubes(other Cubes) {
 	for cube, quantity := range other {
-		c.Add(cube, quantity)
+		c.Remove(cube, quantity)
 	}
 }
 
