@@ -1,5 +1,7 @@
 package sidcon
 
+import "fmt"
+
 type Faction interface {
 	Init()
 	Properties() FactionProperties
@@ -13,6 +15,52 @@ type FactionProperties struct {
 	colonies      []Colony
 	colonySupport int
 	bidTiebreaker int
+}
+
+func (p FactionProperties) AddCubes(cubes Cubes) {
+	p.cubes.AddCubes(cubes)
+}
+
+func (p FactionProperties) RemoveCubes(cubes Cubes) error {
+	return p.cubes.RemoveCubes(cubes)
+}
+
+func (p FactionProperties) AddConverter(converter Converter) {
+	p.converters = append(p.converters, converter)
+}
+
+func (p FactionProperties) RemoveConverter(converter Converter) error {
+	var removeIndex int = -1
+	for i, c := range p.converters {
+		if c.name == converter.name {
+			removeIndex = i
+			break
+		}
+	}
+	if removeIndex == -1 {
+		return fmt.Errorf("converter %q not found", converter.name)
+	}
+	p.converters = append(p.converters[:removeIndex], p.converters[removeIndex+1:]...)
+	return nil
+}
+
+func (p FactionProperties) AddColony(colony Colony) {
+	p.colonies = append(p.colonies, colony)
+}
+
+func (p FactionProperties) RemoveColony(colony Colony) error {
+	var removeIndex int = -1
+	for i, c := range p.colonies {
+		if c.name == colony.name {
+			removeIndex = i
+			break
+		}
+	}
+	if removeIndex == -1 {
+		return fmt.Errorf("colony %q not found", colony.name)
+	}
+	p.colonies = append(p.colonies[:removeIndex], p.colonies[removeIndex+1:]...)
+	return nil
 }
 
 func (p FactionProperties) RunFactory(factory Factory) error {
