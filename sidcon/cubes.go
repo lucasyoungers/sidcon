@@ -36,6 +36,9 @@ func (c Cubes) Remove(cube Cube, quantity int) error {
 		return fmt.Errorf("not enough %s", cube)
 	}
 	c[cube] -= quantity
+	if c[cube] == 0 {
+		delete(c, cube)
+	}
 	return nil
 }
 
